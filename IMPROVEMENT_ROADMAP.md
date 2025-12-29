@@ -8,8 +8,8 @@
 - Convert to WebP
 - Target: under 150KB
 
-### 2. Hidden H1 on AutoTime Page (SEO Penalty Risk)
-`autotime.html:388` has a hidden H1 - Google penalizes hidden text.
+### 2. Hidden H1 on TimeTrack Page (SEO Penalty Risk)
+`timetrack.html:388` has a hidden H1 - Google penalizes hidden text.
 - Remove or convert to meta description
 
 ### 3. Email Header Injection Risk

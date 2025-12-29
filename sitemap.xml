@@ -24,15 +24,15 @@
         <priority>0.95</priority>
     </url>
 
-    <!-- AutoTime Marketing Page -->
+    <!-- TimeTrack Marketing Page -->
     <url>
-        <loc>https://www.hillwayco.uk/autotime.html</loc>
+        <loc>https://www.hillwayco.uk/timetrack.html</loc>
         <lastmod>2025-01-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
     </url>
-    
-    <!-- AutoTime App (Subdomain) -->
+
+    <!-- TimeTrack App (Subdomain - note: subdomain URL unchanged for now) -->
     <url>
         <loc>https://autotime.hillwayco.uk</loc>
         <lastmod>2025-01-01</lastmod>
