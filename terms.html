@@ -79,13 +79,15 @@
 </head>
 
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px 16px; z-index: 10000; transition: top 0.3s;">Skip to main content</a>
 
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <img src="images/logo.png" alt="Hillway Logo">
         </div>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <button class="mobile-menu-toggle" aria-label="Open navigation menu" role="button">
             <span></span>
             <span></span>
             <span></span>
@@ -99,6 +101,7 @@
     </nav>
 
     <!-- Terms of Service Content -->
+    <main id="main-content">
     <section style="padding-top: 150px;">
         <div class="container">
             <h1 style="color: #333; margin-bottom: 2rem;">Terms of Service</h1>
@@ -221,12 +224,13 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="images/logo.png" alt="Hillway">
+                <img src="images/logo.png" alt="Hillway" loading="lazy">
             </div>
             <ul class="footer-links">
                 <li><a href="index.html#about">About</a></li>
@@ -239,7 +243,7 @@
         
         <!-- RICS Footer Badge -->
         <div class="footer-rics">
-            <img src="images/rics-regulated-logo.png" alt="Regulated by RICS">
+            <img src="images/rics-regulated-logo.png" alt="Regulated by RICS" loading="lazy">
             <p>RICS Regulated Firm | Registration No. 900798</p>
         </div>
         

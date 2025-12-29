@@ -532,6 +532,9 @@
     </style>
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px 16px; z-index: 10000; transition: top 0.3s;">Skip to main content</a>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -548,7 +551,7 @@
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                 <li><a href="hillway-ai.html" class="nav-link active">hillway.ai</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" aria-label="Open navigation menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -568,6 +571,7 @@
     </div>
 
     <!-- AI Hero Section -->
+    <main id="main-content">
     <section class="ai-hero">
         <div class="container">
             <h1>hillway.ai</h1>
@@ -718,12 +722,13 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="images/logo.png" alt="Hillway">
+                <img src="images/logo.png" alt="Hillway" loading="lazy">
             </div>
             <ul class="footer-links">
                 <li><a href="index.html#about">About</a></li>

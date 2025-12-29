@@ -161,6 +161,9 @@
     </style>
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px 16px; z-index: 10000; transition: top 0.3s;">Skip to main content</a>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -177,7 +180,7 @@
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                 <li><a href="hillway-ai.html" class="nav-link">hillway.ai</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" aria-label="Open navigation menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -186,6 +189,7 @@
     </nav>
 
     <!-- Thank You Section -->
+    <main id="main-content">
     <section class="thank-you-section">
         <div class="thank-you-content">
             <div class="thank-you-icon">✓</div>
@@ -200,14 +204,18 @@
                 <a href="index.html#home" class="btn-white">Return Home</a>
                 <a href="hillway-ai.html" class="btn-white">Explore hillway.ai</a>
             </div>
+            <p id="countdown-message" style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">
+                Redirecting to homepage in <span id="countdown">30</span> seconds...
+            </p>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="images/logo.png" alt="Hillway">
+                <img src="images/logo.png" alt="Hillway" loading="lazy">
             </div>
             <ul class="footer-links">
                 <li><a href="index.html#about">About</a></li>
@@ -225,11 +233,20 @@
     <!-- External JavaScript -->
     <script src="script.js"></script>
     
-    <!-- Auto-redirect after 10 seconds -->
+    <!-- Auto-redirect after 30 seconds with countdown -->
     <script>
-        setTimeout(function() {
-            window.location.href = 'index.html#home';
-        }, 10000); // Redirect after 10 seconds
+        let seconds = 30;
+        const countdownEl = document.getElementById('countdown');
+
+        const interval = setInterval(function() {
+            seconds--;
+            countdownEl.textContent = seconds;
+
+            if (seconds <= 0) {
+                clearInterval(interval);
+                window.location.href = 'index.html#home';
+            }
+        }, 1000);
     </script>
 </body>
 </html>

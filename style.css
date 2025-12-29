@@ -1,5 +1,20 @@
 /* Hillway Modern Website Styles - MAPP Inspired Design */
 
+/* Skip Link - Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px 16px;
+    z-index: 10000;
+    transition: top 0.3s;
+}
+.skip-link:focus {
+    top: 0;
+}
+
 /* PREVENT WORD BREAKING WITH HYPHENS AND ORPHANS */
 * {
     word-wrap: break-word;
@@ -21,7 +36,7 @@
 :root {
     --black: #000000;
     --dark-gray: #1a1a1a;
-    --medium-gray: #4a4a4a;
+    --medium-gray: #333333;
     --light-gray: #f5f5f5;
     --white: #ffffff;
     --accent: #0066ff;
@@ -220,6 +235,7 @@ nav.scrolled {
 
 #rotating-text {
     font-family: 'Tenor Sans', serif;
+    font-size: clamp(3rem, 10vw, 8rem) !important;
     margin-bottom: 2rem;
     color: var(--white);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -628,10 +644,21 @@ nav.scrolled {
     background: var(--white);
 }
 
+/* Visible Focus Styles - Accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: var(--black);
+    outline: 2px solid #000;
+    outline-offset: 2px;
+    border-color: #000;
 }
 
 .form-group textarea {

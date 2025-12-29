@@ -1,7 +1,11 @@
 <?php
 /**
  * Hillway Contact Form Handler with Anti-Spam Protection
- * Version 2.1 - With Phone Number Support
+ * Version 2.2 - Security hardened (Dec 2024)
+ * - Email header injection prevention
+ * - File-based rate limiting (session bypass protection)
+ * - Input sanitization for all header contexts
+ * - IP detection improved for proxied requests
  */
 
 // Set timezone
@@ -16,6 +20,9 @@ $site_name = 'Hillway';
 $minimum_time_to_fill = 3; // Minimum seconds to fill form (bots fill instantly)
 $maximum_submissions_per_ip = 3; // Max submissions per IP per hour
 $blocked_keywords = ['viagra', 'casino', 'poker', 'cialis', 'loan', 'winner', 'prize', 'crypto', 'bitcoin', 'forex'];
+
+// Rate limiting file path (server-side, more secure than session-only)
+$rate_limit_file = sys_get_temp_dir() . '/hillway_contact_rate_limits.json';
 
 // Start session for rate limiting
 session_start();
@@ -47,26 +54,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // ============================================
-    // ANTI-SPAM CHECK 3: Rate Limiting by IP
+    // ANTI-SPAM CHECK 3: Rate Limiting by IP (File-based + Session)
     // ============================================
+    // Get real IP address (handle proxies/load balancers)
     $user_ip = $_SERVER['REMOTE_ADDR'];
+    if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $forwarded_ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        $user_ip = trim($forwarded_ips[0]);
+    } elseif (isset($_SERVER['HTTP_X_REAL_IP'])) {
+        $user_ip = $_SERVER['HTTP_X_REAL_IP'];
+    }
+    // Validate IP format
+    if (!filter_var($user_ip, FILTER_VALIDATE_IP)) {
+        $user_ip = $_SERVER['REMOTE_ADDR'];
+    }
+
     $current_time = time();
-    
-    // Initialize rate limiting session
+
+    // File-based rate limiting (persistent, cannot be bypassed by clearing cookies)
+    $ip_rate_limits = [];
+    if (file_exists($rate_limit_file)) {
+        $ip_rate_limits = json_decode(file_get_contents($rate_limit_file), true) ?: [];
+    }
+
+    // Clean old entries (older than 1 hour)
+    foreach ($ip_rate_limits as $ip => $timestamps) {
+        $ip_rate_limits[$ip] = array_filter($timestamps, function($time) use ($current_time) {
+            return ($current_time - $time) < 3600;
+        });
+        if (empty($ip_rate_limits[$ip])) {
+            unset($ip_rate_limits[$ip]);
+        }
+    }
+
+    // Check file-based rate limit
+    if (isset($ip_rate_limits[$user_ip]) && count($ip_rate_limits[$user_ip]) >= $maximum_submissions_per_ip) {
+        // Too many submissions from this IP
+        header("Location: index.html?error=rate_limit#contact");
+        exit();
+    }
+
+    // Also keep session-based rate limiting as secondary check
     if (!isset($_SESSION['form_submissions'])) {
         $_SESSION['form_submissions'] = [];
     }
-    
+
     // Clean old submissions (older than 1 hour)
     $_SESSION['form_submissions'] = array_filter($_SESSION['form_submissions'], function($submission) use ($current_time) {
         return ($current_time - $submission['time']) < 3600;
     });
-    
-    // Count submissions from this IP
+
+    // Count submissions from this IP in session
     $ip_submissions = array_filter($_SESSION['form_submissions'], function($submission) use ($user_ip) {
         return $submission['ip'] === $user_ip;
     });
-    
+
     if (count($ip_submissions) >= $maximum_submissions_per_ip) {
         // Too many submissions from this IP
         header("Location: index.html?error=rate_limit#contact");
@@ -83,6 +125,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = isset($_POST['message']) ? trim($_POST['message']) : '';
     $gdpr_consent = isset($_POST['gdpr-consent']) ? true : false;
     $marketing_consent = isset($_POST['marketing-consent']) ? true : false;
+
+    // ============================================
+    // SECURITY: Email Sanitization & Validation
+    // ============================================
+    // Sanitize email to prevent header injection
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    // Remove any newlines or carriage returns (header injection prevention)
+    $email = str_replace(["\r", "\n", "%0a", "%0d"], '', $email);
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header("Location: index.html?error=invalid_email#contact");
+        exit();
+    }
+
+    // ============================================
+    // SECURITY: Sanitize name for use in headers/subject
+    // ============================================
+    // Remove any characters that could be used for header injection
+    $name = str_replace(["\r", "\n", "%0a", "%0d"], '', $name);
+    // Also sanitize for email header context
+    $safe_name_for_header = preg_replace('/[^a-zA-Z0-9\s\-\.\'\,]/', '', $name);
     
     // ============================================
     // ANTI-SPAM CHECK 4: Content Filtering
@@ -164,12 +227,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // ============================================
-    // RECORD SUBMISSION FOR RATE LIMITING
+    // RECORD SUBMISSION FOR RATE LIMITING (Both Session + File)
     // ============================================
     $_SESSION['form_submissions'][] = [
         'ip' => $user_ip,
         'time' => $current_time
     ];
+
+    // Update file-based rate limiting
+    if (!isset($ip_rate_limits[$user_ip])) {
+        $ip_rate_limits[$user_ip] = [];
+    }
+    $ip_rate_limits[$user_ip][] = $current_time;
+    file_put_contents($rate_limit_file, json_encode($ip_rate_limits), LOCK_EX);
     
     // ============================================
     // PREPARE AND SEND EMAIL
@@ -238,7 +308,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class='footer'>
                 <p>Submitted on: " . date('d/m/Y at H:i') . "</p>
-                <p>IP Address: " . $_SERVER['REMOTE_ADDR'] . "</p>
+                <p>IP Address: " . htmlspecialchars($user_ip) . "</p>
                 <p>This email was sent from the contact form at hillwayco.uk</p>
             </div>
         </div>
@@ -257,12 +327,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $plain_text_body .= "GDPR Consent: Given\n";
     $plain_text_body .= "Marketing Consent: " . ($marketing_consent ? 'Given' : 'Not given') . "\n\n";
     $plain_text_body .= "Submitted on: " . date('d/m/Y at H:i') . "\n";
-    $plain_text_body .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
-    
-    // Set up email headers
+    $plain_text_body .= "IP Address: " . $user_ip . "\n";
+
+    // Set up email headers (sanitized email already validated above)
     $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: " . $site_name . " <" . $from_email . ">" . "\r\n";
+    // Reply-To uses sanitized and validated email (injection-safe)
     $headers .= "Reply-To: " . $email . "\r\n";
     $headers .= "X-Mailer: PHP/" . phpversion();
     

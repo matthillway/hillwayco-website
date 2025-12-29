@@ -360,6 +360,9 @@
     </style>
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px 16px; z-index: 10000; transition: top 0.3s;">Skip to main content</a>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -376,7 +379,7 @@
                 <li><a href="autotime.html" class="nav-link active">AutoTime</a></li>
                 <li><a href="index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" aria-label="Open navigation menu" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -384,10 +387,8 @@
         </div>
     </nav>
 
-    <!-- Hidden H1 for SEO -->
-    <h1 style="position: absolute; left: -9999px;">AutoTime Site Clocking App | AutoTime Construction Timesheet | AutoTime Login | Geo-fenced Time Tracking</h1>
-
     <!-- AutoTime Hero Section -->
+    <main id="main-content">
     <section class="autotime-hero">
         <div class="container">
             <h1>AutoTime</h1>
@@ -569,6 +570,7 @@
             </p>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>

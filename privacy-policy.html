@@ -19,13 +19,15 @@
 </head>
 
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px 16px; z-index: 10000; transition: top 0.3s;">Skip to main content</a>
 
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <img src="images/logo.png" alt="Hillway Logo">
         </div>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <button class="mobile-menu-toggle" aria-label="Open navigation menu" role="button">
             <span></span>
             <span></span>
             <span></span>
@@ -39,6 +41,7 @@
     </nav>
 
     <!-- Privacy Policy Content -->
+    <main id="main-content">
     <section style="padding-top: 150px;">
         <div class="container">
             <h1 style="color: #333; margin-bottom: 2rem;">Privacy Policy</h1>
@@ -140,6 +143,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
