@@ -7,7 +7,23 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
+
+    <!-- Sheffield Location Page -->
+    <url>
+        <loc>https://www.hillwayco.uk/property-management-sheffield.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
+    <!-- Doncaster Location Page -->
+    <url>
+        <loc>https://www.hillwayco.uk/property-management-doncaster.html</loc>
+        <lastmod>2025-01-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+    </url>
+
     <!-- AutoTime Marketing Page -->
     <url>
         <loc>https://www.hillwayco.uk/autotime.html</loc>
