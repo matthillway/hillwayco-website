@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: https://autotime.hillwayco.uk
+Disallow: /thank-you.html
+Disallow: /test-email.php
+
+Sitemap: https://www.hillwayco.uk/sitemap.xml

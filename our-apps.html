@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Apps | hillway.ai - Property & Construction Management Tools | AutoTime Site Clocking</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore hillway.ai's suite of property and construction management applications including AutoTime - geo-fenced site clocking and timesheet management for construction workers and fit-out teams.">
+    <meta name="keywords" content="Property Management Apps, Construction Apps, AutoTime, Site Clocking App, Geo-fenced Time Tracking, Construction Timesheet, PropTech Tools, Real Estate Automation, Worker Time Management">
+    <meta name="author" content="Hillway">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Our Apps | AutoTime Site Clocking & Property Management Tools">
+    <meta property="og:description" content="Discover our suite of property and construction apps including AutoTime - geo-fenced site clocking for construction workers.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://www.hillwayco.uk/our-apps.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P77KQTKWE9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-P77KQTKWE9');
+    </script>
+    
+    <style>
+        /* Our Apps Page Specific Styles */
+        
+        /* Prevent word breaking */
+        * {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            word-break: keep-all;
+        }
+        
+        /* Apps Hero Section */
+        .apps-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .apps-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-family: 'Tenor Sans', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        .apps-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* Back Button */
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-5px);
+            opacity: 0.8;
+        }
+        
+        .back-button:before {
+            content: "←";
+            font-size: 1.2rem;
+        }
+        
+        /* Apps Grid Section */
+        .apps-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+        
+        .apps-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Tenor Sans', serif;
+            color: #000;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* App Cards */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .app-card {
+            background: white;
+            border: 1px solid #f5f5f5;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: #000;
+            transition: height 0.3s ease;
+        }
+        
+        .app-card:hover::before {
+            height: 100%;
+        }
+        
+        .app-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #000;
+        }
+        
+        /* Live App Card Special Styling */
+        .app-card.live-app {
+            border: 2px solid #000;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .app-card.live-app::before {
+            background: #00cc00;
+            width: 5px;
+        }
+        
+        .app-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 0.3rem 1rem;
+            background: #000;
+            color: white;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .app-status.live {
+            background: #00cc00;
+            color: white;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .app-status.under-development {
+            background: #4a4a4a;
+        }
+        
+        .app-status.beta {
+            background: #000;
+            border: 1px solid white;
+        }
+        
+        .app-status.coming-soon {
+            background: #f5f5f5;
+            color: #000;
+            border: 1px solid #000;
+        }
+        
+        .app-card-content {
+            padding: 3rem;
+        }
+        
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            background: #000;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            font-weight: 600;
+            font-family: 'Tenor Sans', serif;
+            letter-spacing: 0.05em;
+        }
+        
+        .app-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #000;
+            font-family: 'Tenor Sans', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        .app-card p {
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 1rem;
+        }
+        
+        .app-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .app-features li {
+            padding: 0.5rem 0;
+            color: #4a4a4a;
+            position: relative;
+            padding-left: 1.5rem;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.95rem;
+        }
+        
+        .app-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        .app-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .app-link:after {
+            content: "→";
+            margin-left: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .app-link:hover:after {
+            transform: translateX(5px);
+        }
+        
+        /* Button Styles for Live App */
+        .app-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #000;
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+        }
+        
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            border: 2px solid #000;
+            color: #000 !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+            background: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #000;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Target Industries Badge */
+        .target-badge {
+            background: #f5f5f5;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid #000;
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        /* Section Divider */
+        .section-divider {
+            margin: 5rem 0;
+            border-bottom: 2px solid #f5f5f5;
+        }
+        
+        /* Coming Soon Section */
+        .coming-soon-section {
+            padding: 100px 0;
+            background: #f5f5f5;
+        }
+        
+        .coming-soon-section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Tenor Sans', serif;
+            color: #000;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        .coming-soon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .coming-soon-card {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid #000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .coming-soon-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .coming-soon-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: #000;
+            font-family: 'Tenor Sans', serif;
+            font-weight: 400;
+        }
+        
+        .coming-soon-card p {
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .eta {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.3rem 0.8rem;
+            background: #f5f5f5;
+            border: 1px solid #000;
+            font-size: 0.75rem;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* Request Demo Section */
+        .demo-section {
+            padding: 100px 0;
+            background: #000;
+            color: white;
+            text-align: center;
+        }
+        
+        .demo-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Tenor Sans', serif;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+        
+        .demo-section p {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: white;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            background: #f5f5f5;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .apps-hero {
+                padding: 120px 20px 60px;
+            }
+            
+            .back-button {
+                top: 20px;
+                left: 20px;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .coming-soon-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-card-content {
+                padding: 2rem;
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Hillway">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="hillway-ai.html" class="nav-link">hillway.ai</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Apps Hero Section -->
+    <section class="apps-hero">
+        <a href="hillway-ai.html" class="back-button">Back to hillway.ai</a>
+        <div class="container">
+            <h1>Our Apps & Tools</h1>
+            <p>Discover the suite of applications we've built to transform property and construction management</p>
+        </div>
+    </section>
+
+    <!-- Live Applications Section -->
+    <section class="apps-section">
+        <div class="container">
+            <h2>Live Applications</h2>
+            <p class="section-subtitle">
+                Ready-to-use tools for property, construction, and fit-out companies. Click to access our live applications.
+            </p>
+            
+            <div class="apps-grid">
+                <!-- AutoTime - LIVE APP -->
+                <div class="app-card live-app">
+                    <span class="app-status live">LIVE</span>
+                    <div class="app-card-content">
+                        <div class="app-icon" style="background: linear-gradient(135deg, #000 0%, #333 100%);">AT</div>
+                        <h3>AutoTime - Site Clocking System</h3>
+                        <div class="target-badge">
+                            <strong>For:</strong> Property, Construction & Fit-Out Companies
+                        </div>
+                        <p>Geo-fenced site clocking and timesheet management system for construction workers and on-site teams. Workers clock in/out directly from site with automatic location verification, eliminating timesheet fraud and buddy punching.</p>
+                        <ul class="app-features">
+                            <li>Geo-fenced site clocking with GPS verification</li>
+                            <li>Real-time worker location tracking</li>
+                            <li>Weekly timesheet reports (PDF/Excel)</li>
+                            <li>Direct Xero integration for payroll</li>
+                            <li>Mobile app for workers & managers</li>
+                            <li>Multiple site management</li>
+                            <li>Overtime & break tracking</li>
+                            <li>Photo ID verification on clock-in</li>
+                        </ul>
+                        <div class="app-buttons">
+                            <a href="https://autotime.hillwayco.uk" class="btn-primary" target="_blank">
+                                Access AutoTime
+                            </a>
+                            <a href="autotime.html" class="btn-secondary">
+                                Learn More
+                            </a>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 0.85rem; color: #666;">
+                            <strong>Ideal for:</strong> Construction sites, property developers, fit-out contractors, facilities management teams
+                        </p>
+                        <div style="margin-top: 0.75rem; padding: 0.75rem; background: #f9f9f9; border-radius: 5px;">
+                            <p style="margin: 0; font-size: 0.85rem; color: #666;">
+                                <strong>New to AutoTime?</strong> <a href="mailto:hello@hillwayco.uk" style="color: #000; text-decoration: underline;">Contact us for a demo</a> | 
+                                <a href="autotime.html" style="color: #000; text-decoration: underline;">View features</a>
+                            </p>
+                            <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; color: #666;">
+                                <strong>Existing workers:</strong> Clock in at <a href="https://autotimeworkers.hillwayco.uk" style="color: #333; text-decoration: underline;" target="_blank">autotimeworkers.hillwayco.uk</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section Divider -->
+            <div class="section-divider"></div>
+            
+            <!-- Under Development Section -->
+            <h2>Under Development Applications</h2>
+            <p class="section-subtitle">
+                Purpose-built tools designed by surveyors, for surveyors. Each application solves real challenges faced by property professionals every day.
+            </p>
+            
+            <div class="apps-grid">
+                <!-- Comparables Tracker -->
+                <div class="app-card">
+                    <span class="app-status under-development">Under Development</span>
+                    <div class="app-card-content">
+                        <div class="app-icon">CT</div>
+                        <h3>Comparables Tracker</h3>
+                        <p>Intelligent database for tracking and analysing rental and sales comparables across your portfolio and market area.</p>
+                        <ul class="app-features">
+                            <li>Automated market data collection</li>
+                            <li>Visual mapping of comparables</li>
+                            <li>Trend analysis and reporting</li>
+                            <li>Integration with valuation models</li>
+                        </ul>
+                        <a href="index.html#contact" class="app-link">Register Interest</a>
+                    </div>
+                </div>
+
+                <!-- HoT's Assistant -->
+                <div class="app-card">
+                    <span class="app-status under-development">Under Development</span>
+                    <div class="app-card-content">
+                        <div class="app-icon">HT</div>
+                        <h3>HoT's Assistant</h3>
+                        <p>Streamline heads of terms creation with AI-powered drafting, template management, and automated clause suggestions.</p>
+                        <ul class="app-features">
+                            <li>Smart template library</li>
+                            <li>AI clause recommendations</li>
+                            <li>Version control and tracking</li>
+                            <li>Direct to legal instruction</li>
+                        </ul>
+                        <a href="index.html#contact" class="app-link">Register Interest</a>
+                    </div>
+                </div>
+
+                <!-- Works Scheduler -->
+                <div class="app-card">
+                    <span class="app-status under-development">Under Development</span>
+                    <div class="app-card-content">
+                        <div class="app-icon">WS</div>
+                        <h3>Works Scheduler</h3>
+                        <p>Coordinate maintenance, repairs, and capital works across multiple properties with contractor management and tenant notifications.</p>
+                        <ul class="app-features">
+                            <li>Planned maintenance programmes</li>
+                            <li>Contractor portal access</li>
+                            <li>Automated tenant notifications</li>
+                            <li>Budget tracking and approvals</li>
+                        </ul>
+                        <a href="index.html#contact" class="app-link">Register Interest</a>
+                    </div>
+                </div>
+
+                <!-- Site Inspector -->
+                <div class="app-card">
+                    <span class="app-status under-development">Under Development</span>
+                    <div class="app-card-content">
+                        <div class="app-icon">SI</div>
+                        <h3>Site Inspector</h3>
+                        <p>Digital site inspection app for construction and property teams with photo capture, snagging lists, and automated reporting.</p>
+                        <ul class="app-features">
+                            <li>Offline mode for site visits</li>
+                            <li>Photo annotation tools</li>
+                            <li>Automated report generation</li>
+                            <li>Defect tracking & resolution</li>
+                        </ul>
+                        <a href="index.html#contact" class="app-link">Register Interest</a>
+                    </div>
+                </div>
+
+                <!-- Requirements Matcher -->
+                <div class="app-card">
+                    <span class="app-status beta">Beta</span>
+                    <div class="app-card-content">
+                        <div class="app-icon">RM</div>
+                        <h3>Requirements Matcher</h3>
+                        <p>AI-powered tool that matches tenant requirements with available spaces, analysing fit scores based on multiple criteria.</p>
+                        <ul class="app-features">
+                            <li>Intelligent requirement parsing</li>
+                            <li>Multi-criteria matching algorithm</li>
+                            <li>Automated alert system</li>
+                            <li>Pipeline management dashboard</li>
+                        </ul>
+                        <a href="index.html#contact" class="app-link">Join Beta</a>
+                    </div>
+                </div>
+
+                <!-- Placeholder for grid alignment -->
+                <div style="visibility: hidden;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon-section">
+        <div class="container">
+            <h2>Coming Soon</h2>
+            <p class="section-subtitle">
+                Next-generation tools currently in development. Join our early access list to be first to try them.
+            </p>
+            
+            <div class="coming-soon-grid">
+                <div class="coming-soon-card">
+                    <h4>Service Charge Budget Assistant</h4>
+                    <p>Automated service charge budget creation with RICS-compliant calculations, historic analysis, and tenant communication tools.</p>
+                    <span class="eta">Q2 2025</span>
+                </div>
+                
+                <div class="coming-soon-card">
+                    <h4>AI Lease Negotiator</h4>
+                    <p>AI assistant that suggests optimal negotiation strategies based on market data, lease comparables, and landlord objectives.</p>
+                    <span class="eta">Q3 2025</span>
+                </div>
+                
+                <div class="coming-soon-card">
+                    <h4>Contractor Portal</h4>
+                    <p>Unified platform for managing contractors, from onboarding and compliance to work orders and payment processing.</p>
+                    <span class="eta">Q2 2025</span>
+                </div>
+                
+                <div class="coming-soon-card">
+                    <h4>Safety Compliance Manager</h4>
+                    <p>Digital health & safety management for construction sites with risk assessments, permits, and incident reporting.</p>
+                    <span class="eta">Q3 2025</span>
+                </div>
+            </div>
+            
+            <!-- Additional Coming Soon Box -->
+            <div style="max-width: 900px; margin: 3rem auto 0;">
+                <div class="coming-soon-card" style="text-align: center; background: #000; color: white; border-left: none;">
+                    <h4 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Many More in Development</h4>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1rem;">
+                        Additional property and construction-specific apps are currently under development. We're building the future of property and construction management technology, one tool at a time.
+                    </p>
+                    <a href="index.html#contact" style="display: inline-block; margin-top: 1.5rem; padding: 0.75rem 2rem; background: white; color: #000; text-decoration: none; border-radius: 50px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.9rem; transition: all 0.3s ease;">
+                        Get Updates
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <h2>See Our Apps in Action</h2>
+            <p>
+                Book a personalized demo to see how our tools can transform your property and construction operations.
+            </p>
+            <p style="font-size: 1rem; margin-bottom: 2rem;">
+                <strong>AutoTime</strong> is perfect for construction sites • <strong>Site Inspector</strong> for quality control • <strong>Works Scheduler</strong> for maintenance teams
+            </p>
+            <a href="index.html#contact" class="demo-button">Request Demo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Hillway">
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="hillway-ai.html">hillway.ai</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hillway. All rights reserved. | hillway.ai - Intelligent Property & Construction Solutions</p>
+            <p>AutoTime - Site Clocking for Construction | Works Scheduler - Maintenance Management | Site Inspector - Digital Inspections</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Track AutoTime clicks -->
+    <script>
+        document.querySelectorAll('a[href*="autotime.hillwayco.uk"], a[href*="autotimeworkers.hillwayco.uk"]').forEach(link => {
+            link.addEventListener('click', function() {
+                if (typeof gtag !== 'undefined') {
+                    const isWorkerApp = this.href.includes('autotimeworkers');
+                    gtag('event', 'click', {
+                        'event_category': 'AutoTime',
+                        'event_label': isWorkerApp ? 'Worker App Login' : 'Manager Portal Login'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

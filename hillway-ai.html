@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hillway.ai | Intelligent Property, Powered by Automation</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="hillway.ai is the specialist technology and automation division of Hillway, empowering commercial property professionals with powerful, intelligent tools built for the way surveyors actually work.">
+    <meta name="keywords" content="hillway.ai, PropTech, AI Property Management, Property Automation, Real Estate Technology, AI Surveyors, Service Charge Automation, Lease Data Extraction">
+    <meta name="author" content="Hillway">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="hillway.ai | Intelligent Property, Powered by Automation">
+    <meta property="og:description" content="The specialist technology and automation division of Hillway. Building AI-powered tools for commercial property professionals.">
+    <meta property="og:image" content="images/logo.png">
+    <meta property="og:url" content="https://www.hillwayco.uk/hillway-ai.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P77KQTKWE9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-P77KQTKWE9');
+    </script>
+    
+    <style>
+        /* AI Page Specific Styles - Black & White Theme */
+        
+        /* Prevent word breaking */
+        * {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            word-break: keep-all;
+        }
+        
+        /* Apps Banner */
+        .apps-banner {
+            background: white;
+            border-bottom: 2px solid #000;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 999;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .apps-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1rem;
+            color: #000;
+        }
+        
+        .apps-banner-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: #000;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .apps-banner a {
+            color: #000;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+        
+        .apps-banner a:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        
+        /* Hero Section - Black gradient like main site */
+        .ai-hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            color: white;
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Add subtle geometric pattern */
+        .ai-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.02) 49%, rgba(255,255,255,0.02) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.02) 49%, rgba(255,255,255,0.02) 51%, transparent 52%);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+        
+        .ai-hero h1 {
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            margin-bottom: 1.5rem;
+            font-family: 'Tenor Sans', serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .ai-tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+        
+        .ai-hero p {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out 0.4s;
+            animation-fill-mode: both;
+        }
+        
+        /* Hero CTA Buttons - matching main site */
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out 0.6s;
+            animation-fill-mode: both;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+            background: #f5f5f5;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #000;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Section Styling */
+        .ai-section {
+            padding: 100px 0;
+        }
+        
+        .ai-section:nth-child(even) {
+            background: #ffffff;
+        }
+        
+        .ai-section:nth-child(odd) {
+            background: #f5f5f5;
+        }
+        
+        /* Mission Statement Box */
+        .mission-box {
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border: 2px solid #000;
+            position: relative;
+            margin: 3rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mission-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Offering Cards - Matching Main Site Style */
+        .offering-card {
+            background: white;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .offering-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: #000;
+            transition: height 0.3s ease;
+        }
+        
+        .offering-card:hover::before {
+            height: 100%;
+        }
+        
+        .offering-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Offering Number - Like Values Section */
+        .offering-number {
+            font-size: 3rem;
+            font-weight: 100;
+            color: #000;
+            font-family: 'Tenor Sans', serif;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .offering-card h3 {
+            color: #000;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-family: 'Tenor Sans', serif;
+        }
+        
+        .offering-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+        
+        .offering-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        .offering-list li:before {
+            content: "→";
+            color: #000;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .offering-list li strong {
+            color: #000;
+            font-weight: 600;
+        }
+        
+        /* Why Hillway Cards - Grid Layout */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .why-card {
+            background: white;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            position: relative;
+        }
+        
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #000;
+        }
+        
+        .why-card h3 {
+            color: #000;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-family: 'Tenor Sans', serif;
+        }
+        
+        .why-card p {
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        
+        /* Use Cases List */
+        .use-case-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .use-case-list li {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 3.5rem;
+        }
+        
+        .use-case-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .use-case-list li:hover {
+            background: #f5f5f5;
+            padding-left: 4rem;
+        }
+        
+        .use-case-list li:before {
+            content: "✔";
+            color: #000;
+            font-weight: bold;
+            position: absolute;
+            left: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        /* CTA Section */
+        .ai-cta {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .ai-cta h2 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Tenor Sans', serif;
+        }
+        
+        .ai-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .cta-contact {
+            margin-top: 3rem;
+        }
+        
+        .cta-contact p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-contact a {
+            color: white;
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-contact a:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: white;
+            color: #000 !important;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            background: #f5f5f5;
+        }
+        
+        /* Section Titles */
+        .ai-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Tenor Sans', serif;
+            color: #000;
+        }
+        
+        /* Intro Text */
+        .intro-text {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .intro-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .ai-hero {
+                padding: 120px 20px 80px;
+            }
+            
+            .ai-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 200px;
+                text-align: center;
+            }
+            
+            .offering-card {
+                padding: 2rem;
+            }
+            
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .use-case-list li {
+                padding: 1rem 1rem 1rem 2.5rem;
+            }
+            
+            .use-case-list li:before {
+                left: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Hillway">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="hillway-ai.html" class="nav-link active">hillway.ai</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Apps Banner -->
+    <div class="apps-banner">
+        <div class="container">
+            <div class="apps-banner-content">
+                <span class="apps-banner-icon">✓</span>
+                <span><strong>AutoTime is now LIVE!</strong> Our geo-fenced site clocking app for construction teams is ready to use.</span>
+                <a href="our-apps.html">View Our Apps →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Hero Section -->
+    <section class="ai-hero">
+        <div class="container">
+            <h1>hillway.ai</h1>
+            <p class="ai-tagline">Intelligent Property, Powered by Automation</p>
+            <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem; color: rgba(255,255,255,0.9);">
+                Real estate is changing and at Hillway, we're leading that change.
+            </p>
+            <div class="hero-cta">
+                <a href="#ready-to-build" class="btn">Get Started</a>
+                <a href="our-apps.html" class="btn btn-outline">Our Apps</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="ai-section">
+        <div class="container">
+            <div class="intro-text">
+                <p>
+                    hillway.ai is the specialist technology and automation division of Hillway, created to empower commercial property professionals with powerful, intelligent tools built for the way surveyors actually work.
+                </p>
+                <p>
+                    From automating time-consuming admin to building bespoke AI-powered platforms, we help landlords, property teams, and consultancies future-proof their operations through practical, applied innovation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Is hillway.ai Section -->
+    <section class="ai-section">
+        <div class="container">
+            <h2>What Is hillway.ai?</h2>
+            <div class="intro-text">
+                <p>
+                    hillway.ai is where property expertise meets intelligent automation. We are not just surveyors, we're PropTech developers, AI consultants, and automation architects. Our mission is simple:
+                </p>
+                <div class="mission-box">
+                    To build tools that make your property business faster, smarter, and more profitable – without adding complexity.
+                </div>
+                <p>
+                    Whether you're managing a regional portfolio or leading an institutional fund, our solutions help you unlock new efficiencies and insights from your property data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="ai-section">
+        <div class="container">
+            <h2>What We Offer</h2>
+            
+            <div class="offering-card fade-in">
+                <span class="offering-number">01</span>
+                <h3>Custom AI & Automation Tools for Surveyors</h3>
+                <p>We build and deploy automation apps that streamline the most repetitive parts of the surveying and property management workflow. Example projects include:</p>
+                <ul class="offering-list">
+                    <li><strong>Service Charge Budgeting Automations</strong> – Turn messy spreadsheets into clean, auditable outputs in seconds.</li>
+                    <li><strong>Lease Data Extraction Tools</strong> – Automatically extract and summarise key lease terms, dates, rents, and obligations from scanned PDFs.</li>
+                    <li><strong>Virtual Surveyor Assistants</strong> – AI tools that help surveyors complete inspections, condition reports, or site notes on the go.</li>
+                    <li><strong>Asset Reporting Dashboards</strong> – Link data across property systems to create live dashboards showing rent arrears, lease events, compliance, and value-add opportunities.</li>
+                </ul>
+                <p style="margin-top: 2rem; color: #4a4a4a;">All built around your exact team workflows and always with an experienced Chartered Surveyor's insight behind the code.</p>
+            </div>
+            
+            <div class="offering-card fade-in">
+                <span class="offering-number">02</span>
+                <h3>App Development</h3>
+                <p>Not every problem needs a huge software build. Our team codes and creates rapid prototypes and scalable internal apps, such as:</p>
+                <ul class="offering-list">
+                    <li>Property document libraries with search & version control</li>
+                    <li>AI-powered invoice validation and Xero integration</li>
+                    <li>Automated critical date reminders and escalation workflows</li>
+                    <li>AI-powered assistants trained on your lease or service charge data</li>
+                </ul>
+                <p style="margin-top: 2rem; color: #4a4a4a;">We build robust internal tools in days or weeks, not months, and integrate them directly with platforms you already use.</p>
+            </div>
+            
+            <div class="offering-card fade-in">
+                <span class="offering-number">03</span>
+                <h3>AI Strategy & Digital Transformation Consultancy</h3>
+                <p>If you're not sure where to start, we offer AI and PropTech strategy support for business owners, surveyors, and property teams:</p>
+                <ul class="offering-list">
+                    <li>Process mapping and automation discovery</li>
+                    <li>System audits and AI-readiness assessments</li>
+                    <li>Platform selection and procurement guidance</li>
+                    <li>AI strategy planning tailored to your portfolio and risk appetite</li>
+                    <li>Team training and cultural change support to encourage adoption</li>
+                </ul>
+                <p style="margin-top: 2rem; color: #4a4a4a;">We help you understand what AI can (and can't) do, then deliver measurable, low-risk improvements aligned to your goals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hillway Section -->
+    <section class="ai-section">
+        <div class="container">
+            <h2>Why Hillway?</h2>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <h3>Property First, Tech-Enabled</h3>
+                    <p>We're Chartered Surveyors who build software, not software engineers guessing how property works. Every tool we build reflects the realities of compliance, landlord obligations, service charge rules, and lease structures.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <h3>Built for Real Use</h3>
+                    <p>Our apps aren't gimmicks. They solve real problems that cost surveyors time and energy every day. We work closely with your team to co-design interfaces and workflows that get used, not ignored.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <h3>Secure and Sustainable</h3>
+                    <p>All solutions follow best practices for data privacy and security. Where needed, we deploy within your infrastructure or use secure cloud environments with full GDPR compliance.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <h3>Bespoke, but Scalable</h3>
+                    <p>Whether you need a one-off internal automation or want to launch your own client-facing PropTech platform, we build solutions that grow with you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="ai-section">
+        <div class="container">
+            <h2>Use Cases We've Delivered</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <ul class="use-case-list fade-in">
+                    <li>Service charge automation tools for surveyors</li>
+                    <li>Xero-integrated timesheet-to-invoice system</li>
+                    <li>Automated lease abstraction and data validation</li>
+                    <li>Re-Leased data extraction and visual reporting dashboards</li>
+                    <li>AI site inspection assistant with voice-to-text and checklists</li>
+                    <li>Centralised property data platform for family offices</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="ai-cta" id="ready-to-build">
+        <div class="container">
+            <h2>Ready to Build the Future?</h2>
+            <p>
+                If you're a landlord, property team, or surveying firm looking to gain a competitive edge through AI, automation, or PropTech, hillway.ai is your partner.
+            </p>
+            <div class="cta-contact">
+                <p>
+                    <strong>Get in touch:</strong> <a href="mailto:hello@hillwayco.uk">hello@hillwayco.uk</a>
+                </p>
+                <a href="index.html#contact" class="cta-button">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Hillway">
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="hillway-ai.html">hillway.ai</a></li>
+                <li><a href="our-apps.html">Our Apps</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hillway. All rights reserved. | hillway.ai - Intelligent Property Solutions</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- Add fade-in animation on scroll and smooth scrolling -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    const navHeight = document.getElementById('navbar') ? document.getElementById('navbar').offsetHeight : 0;
+                    const targetPosition = target.offsetTop - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Fade in elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
